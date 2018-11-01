@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>计时器</title>
+
+<script type="text/javascript">
+  var num=0;
+  var i;
+  var flag=false;
+  
+//增加一个布尔变量用于存储值代表start是否开始
+//这个方法要置于循环体外
+  function flag1(){
+    if(flag==false){
+       startCount();
+       flag=true;
+    }else{
+       return 0;
+    }
+  }
+  function startCount(){
+    document.getElementById('count').value=num;
+    num=num+1;
+    i=setTimeout("startCount()",1000);
+  }
+  function stopCount(){
+    clearTimeout(i);
+    flag=false;
+  }
+</script>
+</head>
+<body>
+  <form>
+    <input type="text" id="count" />
+    <input type="button" value="Start" onclick="flag1()" />
+    <input type="button" value="Stop" onclick="stopCount()"  />
+  </form>
+</body>
+</html>
